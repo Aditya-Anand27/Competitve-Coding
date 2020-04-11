@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<long long int>A;
+    for(int i=0;i<n/2;i++){
+        long long int x;
+        cin>>x;
+        A.push_back(x);
+    }
+    long long int arr[n];
+    int j=0;
+    for(int i=0;i<n/2;i++){
+        if(i==0){
+        arr[i]=j;
+        arr[n-i-1]=A[i]-j;}
+        else{
+            arr[i]=max(arr[i-1],A[i]-arr[n-i]);
+            arr[n-i-1]=A[i]-arr[i];   
+        }
+    }
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}

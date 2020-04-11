@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    int n;
+    cin>>n;
+    map<char,int>A;
+    map<char,int>B;
+    for(int i=0;i<n;i++){
+        string g;
+        cin>>g;
+        string h=g;
+        reverse(h.begin(),h.end());
+        if(g==s||h==s){
+            cout<<"YES";
+            return 0;
+        }
+        A[g[0]]++;
+        B[g[1]]++;
+    }
+    if(A[s[1]]&&B[s[0]]){
+        cout<<"YES";
+    }
+    else{
+        cout<<"NO";
+    }
+    return 0;
+}

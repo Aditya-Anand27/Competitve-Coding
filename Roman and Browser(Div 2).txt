@@ -1,0 +1,25 @@
+#includebitsstdc++.h
+using namespace std;
+int main(){
+    int n,k;
+    cinnk;
+    int arr[n];
+    for(int i=0;in;i++){
+        cinarr[i];
+    }
+    int ct=0;
+    for(int i=0;ik;i++){
+        vectorintA;
+        A.clear();
+     for(int j=0;jn;j++){
+         if(abs(j-i)%k!=0){
+             A.push_back(arr[j]);
+         }
+     }
+     int r=count(A.begin(),A.end(),1);
+     int q=count(A.begin(),A.end(),-1);
+     ct=max(ct,abs(q-r));
+    }
+    coutct;
+    return 0;
+}

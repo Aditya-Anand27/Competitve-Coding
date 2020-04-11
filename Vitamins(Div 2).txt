@@ -1,0 +1,61 @@
+By GalliusRex27, contest: Codeforces Round #510 (Div. 2), problem: (B) Vitamins, Accepted, #, Copy
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector< pair<long,string> >A;
+    long cost=INT_MAX;
+    long int a=INT_MAX,b=INT_MAX,c=INT_MAX;
+    for(int i=0;i<n;i++){
+        long x;
+        cin>>x;
+        string s;
+        cin>>s;
+        A.push_back(make_pair(x,s));
+        sort(s.begin(),s.end());
+        if(s=="A"){
+            a=min(a,x);
+        }
+        if(s=="B"){
+            b=min(b,x);
+        }
+        if(s=="C"){
+            c=min(c,x);
+        }
+        if(s=="ABC"){
+            if(cost==-1){
+                cost=x;
+            }
+            else
+            cost=min(x,cost);
+        }
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            string g="";
+          g=g+A[i].second+A[j].second;
+            //cout<<g<<" "<<A[i].first+A[j].first<<endl;
+            if(count(g.begin(),g.end(),'A')>0&&count(g.begin(),g.end(),'B')>0&&count(g.begin(),g.end(),'C')>0){
+            //    cout<<A[i].first+A[j].first<<endl;
+                if(cost==-1){
+                    cost=A[i].first+A[j].first;
+                }
+                else{
+                    cost=min(cost,A[i].first+A[j].first);
+                }
+            }
+        }
+    }
+    if(a!=INT_MAX&&b!=INT_MAX&&c!=INT_MAX){
+        cost=min(cost,a+b+c);
+    }
+    if(cost==INT_MAX){
+        cout<<-1;
+    }
+    else{
+        cout<<cost;
+    }
+    return 0;
+}

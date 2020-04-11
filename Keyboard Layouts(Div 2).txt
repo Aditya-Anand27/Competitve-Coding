@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string a;
+    string b;
+    cin>>a>>b;
+    map<char,char>A;
+    for(int i=0;i<26;i++){
+        A[a[i]]=b[i];
+        A[toupper(a[i])]=toupper(b[i]);
+    }
+    string c;
+    cin>>c;
+    for(int i=0;i<c.size();i++){
+        if(A[c[i]])
+        cout<<A[c[i]];
+        else{
+            cout<<c[i];
+        }
+    }
+    return 0;
+}

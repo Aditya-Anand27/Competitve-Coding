@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        string s;
+        cin>>s;
+        bool meta=true;
+        int ct=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='1'||s[i]=='3'||s[i]=='5'||s[i]=='7'||s[i]=='9'){
+                ct++;
+            }
+        }
+        if(ct<2){
+            cout<<-1<<endl;
+            continue;
+        }
+        int t=2;
+         for(int i=0;i<s.size();i++){
+            if((s[i]=='1'||s[i]=='3'||s[i]=='5'||s[i]=='7'||s[i]=='9')&&t>0){
+                cout<<s[i];
+                t--;
+            }
+        }
+        cout<<endl;
+        continue;
+    }
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int GCD(long a,long b){
+    if(a==0){
+        return b;
+    }
+    if(b<a){
+        swap(a,b);
+    }
+    return GCD(b%a,a);
+}
+int main(){
+    long a,b,c,d;
+    cin>>a>>b>>c>>d;
+    if(d%c!=0){
+        cout<<0;
+        return 0;
+    }
+    long ct=0;
+    for(int i=1;i<=sqrt(d/c);i++){
+ //       cout<<i<<" "<<(d/(c*i))<<endl;
+        if((d/c)%i==0&&GCD(i,d/(c*i))==1&&i*c>=a&&i*c<=b&&d/(c*i)*c>=a&&d/(c*i)*c<=b){
+            if(i*i!=d/c){
+              ct+=2;  
+            }
+            else{
+                ct++;
+            }
+        }
+    }
+    cout<<ct;
+    return 0;
+}

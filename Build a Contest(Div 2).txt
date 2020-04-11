@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int m;
+    cin>>m;
+    int n;
+    cin>>n;
+    vector<int>A (m+1,0);
+    set<int>B;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        A[x]++;
+        B.insert(x);
+        if(B.size()!=m){
+            cout<<"0";
+        }
+        else{
+            cout<<"1";
+            for(int i=1;i<=m;i++){
+                A[i]--;
+            }
+            B.clear();
+            for(int i=1;i<=m;i++){
+                if(A[i]>0){
+                    B.insert(i);
+                }
+            }
+        }
+    }
+    return 0;
+}

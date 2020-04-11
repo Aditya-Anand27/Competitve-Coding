@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long a,b,c,d;
+    cin>>a>>b>>c>>d;
+    long long h=__gcd(c,d);
+    c/=h;
+    d/=h;
+    long long t=a/c;
+    long long u=b/d;
+    cout<<min(t,u);
+    return 0;
+}

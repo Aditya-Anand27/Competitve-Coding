@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    if(s.size()==1||s.size()==0||s.size()==2){
+        cout<<"NO";
+        return 0;
+    }
+    for(int i=1;i<s.size()-1;i++){
+        string g="";
+        g=g+s[i-1]+s[i]+s[i+1];
+        sort(g.begin(),g.end());
+        if(g=="ABC"){
+            cout<<"YES";
+            return 0;
+        }
+    }
+    cout<<"NO";
+    return 0;
+}

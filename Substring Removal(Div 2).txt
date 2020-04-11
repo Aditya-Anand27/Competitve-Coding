@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    string s;
+    cin>>s;
+    long long int a=1,b=1;
+    for(int i=1;i<n;i++){
+        if(s[i]==s[i-1]){
+            a++;
+        }
+        else{
+            break;
+        }
+    }
+    for(int i=n-2;i>=0;i--){
+        if(s[i]==s[i+1]){
+            b++;
+        }
+        else{
+            break;
+        }
+    }
+    if(s[0]==s[n-1]){
+        cout<<(a+1)*(b+1)%998244353;
+    }
+    else{
+        cout<<(a+b+1)%998244353;
+    }
+    return 0;
+}

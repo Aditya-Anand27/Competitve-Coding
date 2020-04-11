@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{   int A[3];
+		cin>>A[0]>>A[1]>>A[2];
+		sort(A,A+2);
+		int c=0;
+	    if(A[0]){
+	        A[0]--; c++;
+	    }
+	     if(A[1]){
+	        A[1]--; c++;
+	    }
+	     if(A[2]){
+	        A[2]--; c++;
+	    }
+	     if(A[2]&&A[1]){
+	        A[2]--; A[1]--; c++;
+	    }
+	    if(A[2]&&A[0]){
+	        A[2]--; A[0]--; c++;
+	    }
+	    if(A[0]&&A[1]){
+	        A[0]--; A[1]--; c++;
+	    }if(A[2]&&A[1]&&A[0]){
+	        A[2]--; A[1]--; A[0]--; c++;
+	    }
+	    cout<<c<<endl;
+	}
+	return 0;
+}

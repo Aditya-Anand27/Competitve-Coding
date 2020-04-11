@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long A[26];
+    long long B[26][26];
+    memset(A,0,sizeof(A));
+    memset(B,0,sizeof(B));
+    string s;
+    cin>>s;
+    for(int i=0;i<s.size();++i){
+        for(char j='a';j<='z';j++){
+            B[j-'a'][s[i]-'a']+=A[j-'a'];
+        }
+            A[s[i]-'a']++;
+    }
+    long long r=*max_element(A,A+26);
+    long long q=-1;
+    for(int i=0;i<26;i++){
+        for(int j=0;j<26;j++){
+            if(B[i][j]>q){
+                q=B[i][j];
+            }
+        }
+    }
+    cout<<max(r,q);
+    return 0;
+}

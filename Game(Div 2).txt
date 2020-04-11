@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    vector<long>A;
+    for(int i=0;i<n;i++){
+        long x;
+        cin>>x;
+        A.push_back(x);
+    }
+    sort(A.begin(),A.end());
+    if(n&1)
+    cout<<A[n/2]<<" ";
+    else
+    cout<<A[n/2-1]<<" ";
+    return 0;
+}

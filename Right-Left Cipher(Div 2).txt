@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string s;
+    cin>>s;
+    int n=s.size();
+    int i=n%2==1?n/2:n/2-1;
+    cout<<s[i];
+    int j=i+1;
+    int k=i-1;
+    while(j<n&&k>=0){
+        cout<<s[j]<<s[k];
+        j++;
+        k--;
+    }
+    while(j<n){
+        cout<<s[j];
+        j++;
+    }
+    while(k>=0){
+        cout<<s[k];
+        k--;
+    }
+    return 0;
+}

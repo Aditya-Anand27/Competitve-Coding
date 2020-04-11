@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int X[3],Y[3];
+    for(int i=0;i<3;i++){
+        cin>>X[i]>>Y[i];
+    }
+    unordered_map<int,int>A;
+    A[X[0]]=Y[0];
+    A[X[1]]=Y[1];
+    A[X[2]]=Y[2];
+    sort(X,X+3);
+    sort(Y,Y+3);
+    int sum=0;
+    for(int i=0;i<3;i++){
+        sum=sum+abs(X[i]-X[1])+abs(Y[i]-Y[1]);
+    }
+    cout<<sum+1<<endl;
+    for(int i=X[0];i<X[1];i++){
+        cout<<i<<" "<<A[X[0]]<<endl;
+    }
+    for(int i=X[2];i>X[1];i--){
+        cout<<i<<" "<<A[X[2]]<<endl;
+    }
+    for(int i=Y[0];i<=Y[2];i++){
+        cout<<X[1]<<" "<<i<<endl;
+    }
+    return 0;
+}

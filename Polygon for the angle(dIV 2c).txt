@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int r=__gcd(n,180);
+        int y=n/r;
+        if(y+1==180/r){
+            cout<<360/r<<endl;
+        }else
+        cout<<180/r<<endl;
+    }
+    return 0;
+}

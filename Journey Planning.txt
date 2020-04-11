@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    map<long long,long long>B;
+    long long int t=0;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        B[x-i-1]+=x;
+        t=max(t,B[x-i-1]);
+    }
+    cout<<t;
+    return 0;
+}

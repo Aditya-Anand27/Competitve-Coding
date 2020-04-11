@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,A,B,C,T;
+    cin>>n>>A>>B>>C>>T;
+    int arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    if(B>=C){
+        cout<<n*A;
+        return 0;
+    }
+    else{
+        long sum=0;
+        for(int i=0;i<n;i++){
+            sum=sum+(T-arr[i])*(C-B)+A;
+        }
+        cout<<sum;
+        return 0;
+    }
+}

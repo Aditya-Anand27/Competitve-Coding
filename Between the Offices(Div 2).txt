@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    char arr[n];
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    char g=arr[0];
+    int ct1=0;
+    int ct2=0;
+    for(int i=1;i<n;i++){
+        if(arr[i]!=g){
+            if(arr[i]=='F'){
+                ct2++;
+            }
+            else{
+                ct1++;
+            }
+            g=arr[i];
+        }
+    }
+    ct2>ct1?cout<<"YES":cout<<"NO";
+    return 0;
+}

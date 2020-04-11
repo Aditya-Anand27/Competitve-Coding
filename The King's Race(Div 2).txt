@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long long int n;
+    cin>>n;
+    long long x,y;
+    cin>>x>>y;
+    unsigned long long a=min(x-1,y-1)+max(x,y)-min(x,y);
+    unsigned long long b=min(n-x,n-y)+max(x,y)-min(x,y);
+    if(a<=b){
+        cout<<"White";
+    }
+    else{
+        cout<<"Black";
+    }
+    return 0;
+}

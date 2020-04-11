@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+    unsigned long long k,n;
+    cin>>k>>n;
+    cout<<(k-1)*9+n<<endl;
+    }
+    return 0;
+}

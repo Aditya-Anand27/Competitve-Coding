@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    long sum=0;
+    int ct=0;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        sum+=arr[i];
+    }
+    float avg=(float)sum/n*1.0;
+    sort(arr,arr+n);
+    int i=0;
+    while(avg<4.5){
+        int temp=arr[i];
+        arr[i]=5;
+        sum=sum+5-temp;
+        avg=(float)sum/n*1.0;
+        ct++;
+        i++;
+    }
+    cout<<ct<<endl;
+    return 0;
+}

@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    long n,a,b;
+    cin>>n>>a>>b;
+    vector<long>A;
+    long sum=0;
+    long t;
+    cin>>t;
+    sum+=t;
+    for(int i=1;i<n;i++){
+        long x;
+        cin>>x;
+        A.push_back(x);
+        sum+=x;
+    }
+    sort(A.begin(),A.end(),greater<int>());
+    long h=t*a/sum;
+    if(h>=b){
+        cout<<0;
+        return 0;
+    }
+    long r=t*a/b;
+    int i=0;
+    int ct=0;
+    while(sum>r){
+        sum-=A[i];
+        i++;
+        ct++;
+    }
+    cout<<ct;
+    return 0;
+}

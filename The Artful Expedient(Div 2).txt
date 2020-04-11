@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n;
+    cin>>n;
+    int arr[n];
+    int brr[n];
+    int ct=0;
+    unordered_map<int,int>A;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+        A[arr[i]]++;
+    }
+    for(int i=0;i<n;i++){
+        cin>>brr[i];
+        A[brr[i]]++;
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if(A[arr[i]^brr[j]]){
+                ct++;
+            }
+        }
+    }
+    ct%2==0?cout<<"Karen":cout<<"Koyomi";
+    return 0;
+}
