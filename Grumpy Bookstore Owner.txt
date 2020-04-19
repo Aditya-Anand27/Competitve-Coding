@@ -1,0 +1,28 @@
+class Solution {
+public:
+    long maxSatisfied(vector<int>& customers, vector<int>& grumpy, int X) {
+        long sum=0;
+        for(int i=0;i<customers.size();i++){
+           if(grumpy[i]==0){
+               sum=sum+customers[i];
+           }
+        }
+        int i=0,j=0;
+        long sum2=0;
+           long sum1=0;
+        while(j<grumpy.size()){
+         
+            if(grumpy[j]==1)
+            sum1=sum1+customers[j];
+            j++;
+            sum2=max(sum2,sum1);
+            if(j-i==X){
+                 if(grumpy[i]==1)
+                 sum1-=customers[i];
+                i++;
+            }
+        }
+        cout<<sum<<" "<<sum2<<endl;
+        return sum+sum2;
+    }
+};

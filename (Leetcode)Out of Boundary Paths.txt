@@ -1,0 +1,33 @@
+class Solution {
+public:
+int rows ;
+int cols ;
+int paths ; 
+    long long int DP(int i, int j,int N, long long dp[50][50][51]) {
+        if((i>=rows||i<0||j<0||j>=cols)&&N>=0){
+            return 1;
+        }
+        if(N<=0){
+            return 0;
+        }
+        if(dp[i][j][N]!=-1){
+            return dp[i][j][N];
+        }
+        long long ways=DP(i,j-1,N-1,dp)+DP(i+1,j,N-1,dp)+DP(i-1,j,N-1,dp)+DP(i,j+1,N-1,dp);
+        dp[i][j][N]=ways%(1000000007);
+        return ways%(1000000007);
+    }
+int findPaths(int m, int n, int N, int i, int j) {
+    rows=m;
+    cols=n;
+    long long int dp[50][50][51];
+    for(int i=0;i<50;i++){
+        for(int j=0;j<50;j++){
+            for(int k=0;k<51;k++){
+                dp[i][j][k]=-1;
+            }
+        }
+        }
+    return DP(i,j,N,dp);
+    }
+};

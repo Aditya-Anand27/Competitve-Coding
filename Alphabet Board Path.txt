@@ -1,0 +1,47 @@
+class Solution {
+public:
+    string alphabetBoardPath(string target) {
+        string s=target;
+        string g="";
+        map<char, pair<int,int> >A;
+        int ct=0;
+        for(int i=0;i<5;i++){
+            for(int j=0;j<5;j++){
+                A['a'+ct]=make_pair(i,j);
+                ct++;
+            }
+        }
+         A['z']=make_pair(5,0);
+        int a=A[s[0]].first;
+        int b=A[s[0]].second;
+        while(a--){
+            g+="D";
+        }
+        while(b--){
+          g+="R";  
+        }
+        g+='!';
+        for(int i=1;i<target.size();i++){
+            int a=A[s[i]].first-A[s[i-1]].first;
+        int b=A[s[i]].second-A[s[i-1]].second;
+            while(b<0){
+                 g+="L";
+                b++;
+            }
+             while(a>0){
+            g+="D";
+                 a--;
+        }
+            while(a<0){
+                 g+="U";
+                a++;
+            }
+        while(b>0){
+          g+="R";
+            b--;
+        }
+        g+='!';
+        }
+        return g;
+    }
+};

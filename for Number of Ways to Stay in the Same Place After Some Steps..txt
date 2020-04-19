@@ -1,0 +1,30 @@
+class Solution {
+public:
+    long long int DP(int i,int arrLen,int steps,long long dp[501][501]){
+        if(i<0||i>=arrLen){
+            return 0;
+        }
+        if(steps==0&&i==0){
+            return 1;
+        }
+        if(steps==0&&i!=0){
+            return 0;
+        }
+        if(dp[i][steps]!=-1){
+            return dp[i][steps];
+        }
+        long long ways=DP(i+1,arrLen,steps-1,dp)+DP(i,arrLen,steps-1,dp)+DP(i-1,arrLen,steps-1,dp);
+        dp[i][steps]=ways%1000000007;
+        return ways%1000000007;
+        
+    }
+    int numWays(int steps, int arrLen) { 
+        long long dp[501][501];
+        for(int i=0;i<501;i++){
+            for(int j=0;j<501;j++){
+                dp[i][j]=-1;
+            }
+        }
+        return DP(0,arrLen,steps,dp);
+    }
+};

@@ -1,0 +1,18 @@
+public:
+    void traverse(TreeNode*root,int L,int R,long&sum){
+        if(root==NULL){
+            return;
+        }
+        traverse(root->left,L,R,sum);
+        if(root->val>=L&&root->val<=R){
+              sum=sum+root->val;   
+        }
+        traverse(root->right,L,R,sum);
+    }
+    int rangeSumBST(TreeNode* root, int L, int R) {
+        long sum=0;
+      traverse(root,L,R,sum);
+        return sum;
+        
+    }
+};

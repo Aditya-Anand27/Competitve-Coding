@@ -1,0 +1,35 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int>A;
+    void drop(TreeNode*root,int x){
+        if(!root){
+            return;
+        }
+        A[x]=root->val;
+        drop(root->left,x+1);
+        drop(root->right,x+1);
+    }
+
+    vector<int> rightSideView(TreeNode* root) {
+        for(int i=0;i<1000;i++){
+            A.push_back(-1);
+        }
+        vector<int>B;
+        drop(root,0);
+        for(int i=0;i<A.size();i++){
+            if(A[i]!=-1){
+                B.push_back(A[i]);
+            }
+        }
+        return B;
+    }
+};

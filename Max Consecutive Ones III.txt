@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int longestOnes(vector<int>& A, int k) {
+        int i=0,j=0;
+        int n=A.size();
+        int maxlen=0;
+        unordered_map<int,int>B;
+        while(j<n){
+            if(A[j]==1){
+            B[A[j]]++;
+            j++;
+            maxlen=max(maxlen,j-i);
+            }
+            else if(A[j]==0&&B[0]<k){
+                B[A[j]]++;
+                  j++;
+                 maxlen=max(maxlen,j-i);
+            }
+            else{
+                B[A[i]]--;
+                i++;
+                 maxlen=max(maxlen,j-i);
+            }
+            
+        }
+        return maxlen;
+    }
+};

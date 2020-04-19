@@ -1,0 +1,26 @@
+class Solution {
+public:
+    bool DP(string s,vector<string>A){
+    if(A.size()==0&&s!=""){
+        return false;
+    }
+    bool dp[s.size()+1];
+        memset(dp,0,sizeof(dp));
+    dp[0]=true;
+    for(int i=1;i<=s.size();i++){
+        for(int j=i-1;j>=0;j--){
+            string g=s.substr(j,i-j);
+            if(dp[j]){
+            if(find(A.begin(),A.end(),g)!=A.end()){
+                dp[i]=true;
+            }
+            }
+        }
+    }
+    return dp[s.size()];
+   }
+    bool wordBreak(string s, vector<string>& wordDict) {
+    return  DP(s,wordDict);
+    
+    }
+};

@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int largestValsFromLabels(vector<int>& values, vector<int>& labels, int num_wanted, int use_limit) {
+        vector< pair<int,int> >A;
+        for(int i=0;i<values.size();i++){
+            A.push_back(make_pair(values[i],labels[i]));
+        }
+        sort(A.begin(),A.end());
+        reverse(A.begin(),A.end());
+        int ct=0;
+        int sum=0;
+        map<int,int>B;
+        for(int i=0;i<values.size();i++){
+            if(B[A[i].second]<use_limit){
+                B[A[i].second]++;
+                sum+=A[i].first;
+                ct++;
+            }
+            if(ct==num_wanted){
+
+            break;}
+        }
+        return sum;
+    }
+};

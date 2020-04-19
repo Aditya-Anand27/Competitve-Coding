@@ -1,0 +1,38 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    unordered_map<int,int>C;
+    vector< vector<int> > A ;
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        A.clear();
+        BFS(root,0);
+        for(int i=0;i<A.size();i++){
+            if(i%2==1){
+                reverse(A[i].begin(),A[i].end());
+            }
+        }
+        return A;
+    }
+    void BFS(TreeNode*root,int x){
+       if(root==NULL){
+           return;
+       } 
+        if(C[x]==0){
+            vector<int>B;
+            B.clear();
+            A.push_back(B);
+            C[x]++;
+        }
+       A[x].push_back(root->val);
+        BFS(root->left,x+1);
+        BFS(root->right,x+1);
+    }
+};

@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n=nums.size();
+        int dp[n+1];
+        int dp1[n+1];
+        memset(dp,0,sizeof(dp));
+        memset(dp1,0,sizeof(dp1));
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return nums[0];
+        }
+        if(n==2){
+         return max(nums[1],nums[0]);
+        }
+        dp[0]=nums[0];
+        dp[1]=nums[0];
+        for(int i=2;i<n-1;i++){
+            dp[i]=max(dp[i-2]+nums[i],dp[i-1]);
+        }
+        dp1[0]=0;
+        dp1[1]=nums[1];
+        for(int i=2;i<n;i++){
+            dp1[i]=max(dp1[i-2]+nums[i],dp1[i-1]);
+        }
+        for(int i=0;i<n;i++){
+            cout<<dp[i]<<" "<<dp1[i]<<" ";
+            cout<<endl;
+        }
+        return max(dp1[n-1],dp[n-2]);
+    }
+};

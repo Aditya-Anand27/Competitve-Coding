@@ -1,0 +1,19 @@
+class Solution {
+public:
+    unsigned long long int combinationSum4(vector<int>& nums, int target) {
+        unsigned long long int dp[target+1];
+        memset(dp,0,sizeof(dp));
+              dp[0]=1;
+        for(unsigned long long int i=1;i<=target;i++){
+            for(auto j=nums.begin();j!=nums.end();j++){
+                if(*j<=i){
+                    dp[i]+=dp[i-*j];
+                }
+            }
+        }
+        /*for(int i=0;i<=target;i++){
+        cout<<dp[i]<<" ";
+        }*/
+        return dp[target];
+    }
+};

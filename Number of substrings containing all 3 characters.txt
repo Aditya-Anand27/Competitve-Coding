@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int helper(string s,int k) {
+        int n=s.size();
+        int i=0,j=0;
+        unordered_map<char,int>A;
+        int ct=0;
+        while(j<n){
+            if(A[s[j]]==0){
+                k--;
+            }
+            A[s[j]]++;
+            j++;
+            while(k<0){
+                A[s[i]]--;
+                if(A[s[i]]==0){
+                    k++;
+                }
+                i++;
+            }
+            ct=ct+j-i+1;
+        }
+       return ct;
+    }
+    int numberOfSubstrings(string s){
+        return helper(s,3)-helper(s,2);
+    }
+};
